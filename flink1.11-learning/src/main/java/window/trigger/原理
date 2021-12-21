@@ -1,0 +1,8 @@
+在EventTimeTrigger中返回的triggerResult要么是 continue 要么是 fire，就是没有 purge
+或者 fire_and_purge。现在看来，也是为了配合flink提供的 allowedLateness 处理迟到数据的策略。
+这是因为，如果trigger的结果是 purge 或者 fire_and_purge，就会在 WindowOperator 中触发
+windowState.clear() 动作，这样的话，真正迟到的数据加入该window后，该window的状态已经被删除，
+无法更新了。但是 windowState.clear() 是为了清除该 window 的状态的，如果trigger的状态不指定为
+purge 或者 fire_and_purge，该window的状态会不会删除？什么时候删除？若不删除岂不是会造成内存问题？
+答案就在之前说的，当判定该window过期，需要删除时，会同时删除window的状态，可以参考 WindowOperator
+中的 clearAllState() 方法。

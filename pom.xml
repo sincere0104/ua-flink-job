@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com</groupId>
+    <artifactId>hrbb</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>track-product-update-users</module>
+        <module>flinksql-runner</module>
+        <module>flink-dim-model</module>
+        <module>flink-kafka-mock</module>
+        <module>track-event-times-duration</module>
+        <module>flink1.11-learning</module>
+        <module>flink1.12-learning</module>
+        <module>flink1.13-learning</module>
+        <module>java-algo</module>
+    </modules>
+
+
+</project>
